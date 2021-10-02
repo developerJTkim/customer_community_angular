@@ -1,8 +1,23 @@
 <p>
   <mat-toolbar>
-    <span>{{title}}</span>
+
+    <button mat-mini-fab color="primary" >
+      <mat-icon routerLink="/">home</mat-icon>
+    </button>
+
+    <button mat-mini-fab color="primary" [matMenuTriggerFor]="Menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span>&nbsp;{{appTitle}}</span>
   </mat-toolbar>
 </p>
-<p>
-  <a mat-raised-button href="javascript:void(0);">안녕하세요</a>
-</p>
+
+<mat-menu #Menu="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="user">user</button>
+</mat-menu>
+
+<mat-menu #user="matMenu">
+  <button mat-menu-item routerLink="user/list" routerLinkActive="active">List</button>
+  <button mat-menu-item routerLink="user/login">Login</button>
+</mat-menu>
