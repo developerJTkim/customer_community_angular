@@ -1,1 +1,55 @@
-<p>{{ userList }}</p>
+<div>
+  <table mat-table [dataSource]="users" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>id</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="mobile">
+      <th mat-header-cell *matHeaderCellDef>mobile</th>
+      <td mat-cell *matCellDef="let element">{{ element.mobile }}</td>
+    </ng-container>
+    <ng-container matColumnDef="is_black">
+      <th mat-header-cell *matHeaderCellDef>is_black</th>
+      <td mat-cell *matCellDef="let element">{{ element.is_black }}</td>
+    </ng-container>
+    <ng-container matColumnDef="email_verified_at">
+      <th mat-header-cell *matHeaderCellDef>email_verified_at</th>
+      <td mat-cell *matCellDef="let element">{{ element.email_verified_at }}</td>
+    </ng-container>
+    <ng-container matColumnDef="created_at">
+      <th mat-header-cell *matHeaderCellDef>created_at</th>
+      <td mat-cell *matCellDef="let element">{{ element.created_at }}</td>
+    </ng-container>
+    <ng-container matColumnDef="updated_at">
+      <th mat-header-cell *matHeaderCellDef>updated_at</th>
+      <td mat-cell *matCellDef="let element">{{ element.updated_at }}</td>
+    </ng-container>
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef>update</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-mini-fab color="primary" >
+          <mat-icon routerLink="/user/detail/{{ element.id }}">create</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>delete</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-mini-fab color="primary" >
+          <mat-icon >delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
