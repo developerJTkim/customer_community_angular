@@ -16,6 +16,15 @@ export class UserService {
     private http: HttpClient
   ) { }
 
+  getUser(userId: Number): Observable<User> {
+    return this.http
+      .get<User>(`${this.userUrl}/${userId}`)
+      .pipe(
+        tap( res => res)
+      )
+
+  }
+
   getUsers(): Observable<User[]> {
     return this.http
       .get<User[]>(this.userUrl)
