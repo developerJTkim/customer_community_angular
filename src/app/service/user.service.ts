@@ -10,7 +10,7 @@ import { environment } from "../../environments/environment";
 })
 export class UserService {
 
-  private userUrl = "http://54.180.24.47:8088/api/user"
+  private userUrl = `${environment.apiUrl}/user`
 
   constructor(
     private http: HttpClient
